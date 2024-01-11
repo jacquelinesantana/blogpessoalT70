@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.blogpessoal.model.Postagem;
 import com.generation.blogpessoal.repository.PostagemRepository;
-
+//controller vai controlar quem vai acessar, qual a rota, e quais os métodos e como os métodos vão responder ao front ou ao insomnia
 @RestController
-@RequestMapping("/postagens")
+@RequestMapping("/postagens") // endereço para acessar essa controller
 @CrossOrigin(origins = "*", allowedHeaders="*")//informa toda e qualquer origem pode acessar essa rota
 public class PostagemController {
 
@@ -30,12 +30,16 @@ public class PostagemController {
 		//find all == select * from nomedatabela
 		//codigo de retorno -- corpo de retorno
 		
+		
 	}
 	
 	@GetMapping("/exemplo")
 	public ResponseEntity<String> exemplo(){
 		String ola = "Olá mundo";
 		return ResponseEntity.noContent().build();
+		//nesse exemplo utilizamos o build pq não vamos retornar nada no corpo da requisição
+		//o .noContent vai retornar outro código de status no insomnia
+		//cada status serve para indicar alguma coisa veja a documentação noContent = não contem o dado ou informação solicitada
 	}
 	
 }
